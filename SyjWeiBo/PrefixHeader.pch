@@ -1,0 +1,33 @@
+//
+//  PrefixHeader.pch
+//  SyjWeiBo
+//
+//  Created by 史玉金 on 16/6/25.
+//  Copyright © 2016年 史玉金. All rights reserved.
+//
+
+/*
+ // 自定义Log
+ #ifdef DEBUG // 如果是调试阶段, 将IWLog替换为NSLog
+ #define IWLog(...) NSLog(__VA_ARGS__)
+ #else // 如果是发布阶段, 将IWLog替换为空白
+ #define IWLog(...)
+ #endif
+ */
+
+/*
+ 该框架可以用于输出彩色日志, 但是要想显示还必须让Xcode具备显示带颜色Log的功能, 安装一个插件
+ */
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+#import "DDASLLogger.h"
+#import "DDFileLogger.h"
+
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+#import "UIView+Frame.h"
